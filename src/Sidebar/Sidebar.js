@@ -1,18 +1,24 @@
 import React, {Component} from 'react';
+import {Route,Link} from 'react-router-dom';
+import AddFolder from '../AddFolder/AddFolder';
 
 export default class Sidebar extends Component {
-   constructor(props) {
-      super(props);
-   }
+    
    render() {
       console.log(this.props)
       const list = this.props.store.folders.map((folder) => 
-         folder.name
+         <button 
+            key={folder.id}
+            >
+            {folder.name}
+         </button>
       )
       return (
-         <ul className = 'sidebar'>
+         <div className = 'sidebar'>
             {list}
-         </ul>
+            
+            <Link to = './AddFolder'>Add Folder</Link>
+         </div>
       )
    }
 } 
